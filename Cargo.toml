@@ -1,6 +1,6 @@
 [package]
 name = "cc-truenas-drivetemp"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["cc-truenas-drivetemp contributors"]
 description = "CoolerControl device service plugin for TrueNAS drive temperatures"
 license = "LICENSE"
