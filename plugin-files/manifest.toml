@@ -1,0 +1,7 @@
+id = "cc-truenas-drivetemp"
+type = "device"
+version = "0.1.0"
+description = "TrueNAS drive temperature device service for CoolerControl."
+address = "/tmp/cc-truenas-drivetemp.sock"
+executable = "cc-truenas-drivetemp"
+privileged = false

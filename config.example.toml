@@ -1,0 +1,23 @@
+poll_interval_seconds = 300
+
+# Leave disks empty to discover all disks through TrueNAS disk.query.
+# Set disks to poll exactly these names and skip discovery, for example: ["sda", "sdb", "nvme0n1"].
+disks = []
+
+# Only used when disks is empty. Discovered disks with these names are skipped.
+exclude_disks = []
+
+# When a full poll fails, publish this Celsius value on aggregate_max so fan curves fail hot.
+# Omit this key to keep the previous cached temperatures during poll failures.
+failsafe_aggregate_max = 70.0
+
+temp_min = 0.0
+temp_max = 100.0
+
+[truenas]
+url = "wss://truenas.example.lan/api/current"
+username = "admin"
+api_key_file = "./truenas-api-key"
+api_key_env = "TRUENAS_API_KEY"
+verify_tls = true
+timeout_seconds = 20
