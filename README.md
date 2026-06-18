@@ -127,7 +127,6 @@ If everything went well, it should now be up and running!
 | `disks` | Explicit disk names such as `["sda", "nvme0n1"]`. If set, the plugin polls exactly these names and does not need disk discovery. |
 | `exclude_disks` | Disk names to skip when `disks` is empty and the plugin discovers disks through `disk.query`. |
 | `failsafe_aggregate_max` | On polling failure, update/create `aggregate_max` with this Celsius value. Omit it to keep the previous cached temperatures. |
-| `temp_min` / `temp_max` | Profile range metadata reported to CoolerControl. |
 | `truenas.url` | WebSocket API URL, usually `wss://host/api/current`. |
 | `truenas.username` | Username associated with the API key. Required for newer TrueNAS login flows. |
 | `truenas.api_key_file` | File containing the raw API key. Relative paths resolve from the config file directory. |

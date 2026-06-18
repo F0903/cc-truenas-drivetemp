@@ -13,8 +13,6 @@ pub struct PluginConfig {
     pub disks: Vec<String>,
     pub exclude_disks: Vec<String>,
     pub failsafe_aggregate_max: Option<f64>,
-    pub temp_min: f64,
-    pub temp_max: f64,
 }
 
 impl Default for PluginConfig {
@@ -25,8 +23,6 @@ impl Default for PluginConfig {
             disks: Vec::new(),
             exclude_disks: Vec::new(),
             failsafe_aggregate_max: None,
-            temp_min: 0.0,
-            temp_max: 100.0,
         }
     }
 }
@@ -62,12 +58,6 @@ impl PluginConfig {
         }
         if self.poll_interval_seconds == 0 {
             bail!("poll_interval_seconds must be greater than zero");
-        }
-        if !self.temp_min.is_finite()
-            || !self.temp_max.is_finite()
-            || self.temp_max <= self.temp_min
-        {
-            bail!("temp_max must be finite and greater than temp_min");
         }
         if let Some(failsafe_aggregate_max) = self.failsafe_aggregate_max
             && !failsafe_aggregate_max.is_finite()

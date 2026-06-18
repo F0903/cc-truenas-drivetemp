@@ -11,9 +11,6 @@ exclude_disks = []
 # Omit this key to keep the previous cached temperatures during poll failures.
 failsafe_aggregate_max = 70.0
 
-temp_min = 0.0
-temp_max = 100.0
-
 [truenas]
 url = "wss://truenas.example.lan/api/current"
 username = "admin"

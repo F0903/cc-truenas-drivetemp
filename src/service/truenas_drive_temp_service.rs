@@ -15,6 +15,9 @@ use std::collections::HashMap;
 use std::time::Instant;
 use tonic::{Request, Response, Status as GrpcStatus};
 
+const TEMP_MIN_CELSIUS: f64 = 0.0;
+const TEMP_MAX_CELSIUS: f64 = 100.0;
+
 #[derive(Debug, Clone)]
 pub struct TrueNasDriveTempService {
     config: PluginConfig,
@@ -55,11 +58,11 @@ impl TrueNasDriveTempService {
                 channels: HashMap::new(),
                 temps,
                 lighting_speeds: Vec::new(),
-                temp_min: Some(self.config.temp_min),
-                temp_max: Some(self.config.temp_max),
+                temp_min: Some(TEMP_MIN_CELSIUS),
+                temp_max: Some(TEMP_MAX_CELSIUS),
                 profile_min_length: None,
                 profile_max_length: None,
-                model: Some("TrueNAS drive temperature provider".to_string()),
+                model: Some(format!("{} {}", DEVICE_NAME, VERSION)),
                 driver_info: Some(DriverInfo {
                     name: Some(SERVICE_ID.to_string()),
                     version: Some(VERSION.to_string()),
